@@ -67,7 +67,7 @@ export default App;
 */
 
 /* Esta es la version con CSS */
-
+import WelcomePopup from "./WelcomePopup";
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
@@ -106,8 +106,11 @@ function App() {
 
   return (
     <div className="App">
+      <WelcomePopup />
       <form onSubmit={handleSubmit}>
-        <label htmlFor="content">Como te asisto:</label>
+        <label htmlFor="content">
+          <h2>Como te asisto:</h2>
+        </label>
         <input
           type="text"
           id="content"
