@@ -20,6 +20,9 @@ function WelcomePopup() {
           solicitud.
         </p>
         <h3>Bienvenid@!</h3>
+        <footer>
+          <p>&copy; 2023 Luis Vallejo</p>
+        </footer>
         <button onClick={handleClosePopup}>Cerrar</button>
       </div>
     </div>

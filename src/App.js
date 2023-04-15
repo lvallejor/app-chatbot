@@ -71,11 +71,13 @@ import WelcomePopup from "./WelcomePopup";
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import { ProgressBar } from "react-bootstrap";
 
 function App() {
   const [content, setContent] = useState("");
   const [response, setResponse] = useState(null);
   const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // Nuevo estado
 
   const handleInputChange = (event) => {
     setContent(event.target.value);
@@ -83,6 +85,7 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true); // Establece isLoading en true
 
     try {
       const respuestaApi = await axios.post(
@@ -101,6 +104,8 @@ function App() {
       setImage(imageData.Imagen);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false); // Establece isLoading en false
     }
   };
 
@@ -120,13 +125,22 @@ function App() {
         <button type="submit">Preguntar</button>
       </form>
 
-      {response && (
+      {/* Verifica si isLoading es verdadero */}
+      {isLoading && (
+        <div className="text-center">
+          <ProgressBar now={100} label="Cargando..." srOnly />
+        </div>
+      )}
+
+      {/* Verifica si isLoading es falso */}
+      {!isLoading && response && (
         <div className="response">
           <p>{response}</p>
         </div>
       )}
 
-      {image && (
+      {/* Verifica si isLoading es falso */}
+      {!isLoading && image && (
         <div className="image-container">
           <img src={image} alt="related" />
         </div>
