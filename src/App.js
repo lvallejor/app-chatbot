@@ -89,7 +89,7 @@ function App() {
 
     try {
       const respuestaApi = await axios.post(
-        `https://api-chatgpt.herokuapp.com/chatbot/?content=${content}`
+        `https://web-production-a4cd.up.railway.app/chatbot/?content=${content}`
       );
       const responseData = await respuestaApi.data;
       console.log(responseData);
@@ -97,7 +97,7 @@ function App() {
 
       // Make a second API call to get the image
       const imagenApi = await axios.post(
-        `https://api-chatgpt.herokuapp.com/imagen/?content=${content}`
+        `https://web-production-a4cd.up.railway.app/imagen/?content=${content}`
       );
       const imageData = await imagenApi.data;
       console.log(imageData.Imagen);
