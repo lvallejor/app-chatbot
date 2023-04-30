@@ -1,0 +1,19 @@
+/* Estilos para el header */
+header {
+    background-color: #3182CE;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+}
+
+header .number {
+    color: #FBBF24;
+    /* Este es el color que se usará para los números */
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.css";
 
 function Header() {
   const [financialIndicators, setFinancialIndicators] = useState({});
@@ -14,7 +15,7 @@ function Header() {
 */
       // Llamada a la api de indicadores financieros
       const financialResponse = await fetch(
-        "http://127.0.0.1:8000/indicadores/dolar"
+        "https://web-production-a4cd.up.railway.app/indicadores/dolar"
       );
       const financialData = await financialResponse.json();
       setFinancialIndicators(financialData);
@@ -38,9 +39,15 @@ function Header() {
 
   return (
     <header>
-      <p>Dólar: {dolar}</p>
-      <p>UF: {uf} </p>
-      <p>Bitcoin: {bitcoin}</p>
+      <p>
+        Dólar: <span className="number">{dolar}</span>
+      </p>
+      <p>
+        UF: <span className="number">{uf}</span>
+      </p>
+      <p>
+        Bitcoin: <span className="number">{bitcoin}</span>
+      </p>
     </header>
   );
 }
