@@ -4,6 +4,7 @@ import "./styles.css";
 function Header() {
   const [financialIndicators, setFinancialIndicators] = useState({});
   // const [weather, setWeather] = useState({});
+  console.log(financialIndicators);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +37,18 @@ function Header() {
     financialIndicators.value && financialIndicators.value.bitcoin
       ? financialIndicators.value.bitcoin.valor.toLocaleString()
       : "";
+  const euro =
+    financialIndicators.value && financialIndicators.value.bitcoin
+      ? financialIndicators.value.euro.valor.toLocaleString()
+      : "";
+  const ipc =
+    financialIndicators.value && financialIndicators.value.bitcoin
+      ? financialIndicators.value.ipc.valor.toLocaleString()
+      : "";
+  const utm =
+    financialIndicators.value && financialIndicators.value.bitcoin
+      ? financialIndicators.value.utm.valor.toLocaleString()
+      : "";
 
   return (
     <header>
@@ -47,6 +60,15 @@ function Header() {
       </p>
       <p>
         Bitcoin: <span className="number">{bitcoin}</span>
+      </p>
+      <p>
+        EURO: <span className="number">{euro}</span>
+      </p>
+      <p>
+        UTM: <span className="number">{utm}</span>
+      </p>
+      <p>
+        IPC: <span className="number">{ipc}</span>
       </p>
     </header>
   );
